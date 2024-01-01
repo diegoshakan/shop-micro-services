@@ -9,7 +9,7 @@ class ProductConsumer
     queue = channel.queue(QUEUE, durable: true)
 
     queue.subscribe(manual_ack: true, block: true) do |_delivery_info, _metadata, message|
-      message = JSON.parse(message)
+      message = JSON.parse(message, symbolize_names: true)
       process_message(message)
 
       channel.ack(_delivery_info.delivery_tag)
@@ -25,6 +25,6 @@ class ProductConsumer
 
   def process_message(message)
     puts message
-    # CreateItem.execute(message)
+    CreateItem.execute(message)
   end
 end
