@@ -1,5 +1,5 @@
 class Publisher
-  QUEUE = 'hello'
+  QUEUE = 'product_queue'
 
   def self.connection
     conn = Bunny.new(automatically_recover: false)
