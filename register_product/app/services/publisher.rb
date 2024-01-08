@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class Publisher
-  QUEUE = 'product_queue'
+  QUEUE = "product_queue"
 
   def self.connection
     conn = Bunny.new(automatically_recover: false)

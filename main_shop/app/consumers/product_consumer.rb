@@ -1,8 +1,9 @@
 # frozen_string_literal: true
-require_relative '../../lib/bunny/connection_manager.rb'
+
+require_relative "../../lib/bunny/connection_manager.rb"
 
 class ProductConsumer
-  QUEUE = 'product_queue'
+  QUEUE = "product_queue"
 
   def start_consuming
     channel = connection.create_channel
